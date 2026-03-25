@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         if (rb.linearVelocity.y < 0)
         {
             // 落下中は重力を 1.5倍 にする（数字はお好みで！）
-            rb.gravityScale = 4.0f; 
+            rb.gravityScale = 7.0f; 
         }
         else
         {
