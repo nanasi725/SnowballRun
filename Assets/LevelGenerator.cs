@@ -14,7 +14,7 @@ public class LevelGenerator : MonoBehaviour
 
     void Start()
     {
-        // 最初にいくつかステージを作っておく
+        nextSpawnPos = transform.position; // 最初はこのオブジェクトの位置からスタート
         for (int i = 0; i < initialSpawnCount; i++)
         {
             SpawnStage();
