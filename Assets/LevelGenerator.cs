@@ -23,11 +23,16 @@ public class LevelGenerator : MonoBehaviour
 
     void Update()
     {
-        // 雪玉が「次の出現場所」に近づいたら、新しいステージを作る
-        if (Vector3.Distance(player.position, nextSpawnPos) < spawnThreshold)
+        if (player != null)
         {
-            SpawnStage();
-            RemoveOldStage();
+            // 【改造ポイント】
+            // 「次に作る場所」から「今指定した距離（spawnThreshold）」を引いた地点を
+            // プレイヤーが追い越したら、新しいステージを作る
+            if (player.position.x > nextSpawnPos.x - spawnThreshold)
+            {
+                SpawnStage();
+                RemoveOldStage();
+            }
         }
     }
 
