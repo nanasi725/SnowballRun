@@ -94,7 +94,10 @@ public class PlayerController : MonoBehaviour
     void RestartGame()
     {
         // 現在のシーンの名前を取得して、もう一度読み込む
-        string sceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(sceneName);
+        // GameManagerを探して「ゲームオーバーだよ」と伝える
+        FindObjectOfType<GameManager>().GameOver();
+        
+        // 雪玉自体の動きも止めておく
+        this.enabled = false;
     }
 }
