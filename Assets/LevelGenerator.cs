@@ -38,15 +38,15 @@ public class LevelGenerator : MonoBehaviour
 
     void SpawnStage()
     {
-        // 登録したプレハブからランダムに1つ選ぶ
         int randomIndex = Random.Range(0, stagePrefabs.Length);
         GameObject selectedPrefab = stagePrefabs[randomIndex];
 
-        // プレハブを生成
+        // プレハブが空っぽ（Missing）だった場合の安全策
+        if (selectedPrefab == null) return;
+
         GameObject newStage = Instantiate(selectedPrefab, nextSpawnPos, Quaternion.identity);
         activeStages.Add(newStage);
 
-        // 次の出現場所を、今作ったステージの「EndAnchor」の位置に更新する
         Transform anchor = newStage.transform.Find("EndAnchor");
         if (anchor != null)
         {
@@ -54,8 +54,9 @@ public class LevelGenerator : MonoBehaviour
         }
         else
         {
-            // もしEndAnchorを付け忘れていたら、とりあえず右に10進める（エラー防止）
-            nextSpawnPos += new Vector3(10, 0, 0);
+            // 【重要】EndAnchorが見つからない場合、ログを出して無理やり15m先に進める
+            Debug.LogWarning(newStage.name + " に EndAnchor が見つかりません！");
+            nextSpawnPos += new Vector3(15f, 0, 0); 
         }
     }
 

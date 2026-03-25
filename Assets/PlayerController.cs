@@ -49,6 +49,18 @@ public class PlayerController : MonoBehaviour
 
         // 4. 雪玉を大きくする処理を呼び出す
         UpdateSize();
+
+        // 下に向かって落ちている時だけ、重力をさらに強める（落下を早くする）
+        if (rb.linearVelocity.y < 0)
+        {
+            // 落下中は重力を 1.5倍 にする（数字はお好みで！）
+            rb.gravityScale = 4.0f; 
+        }
+        else
+        {
+            // 上昇中や地面にいる時は元の重力に戻す
+            rb.gravityScale = 3.0f;
+        }
     }
 
     // ジャンプの具体的な処理
