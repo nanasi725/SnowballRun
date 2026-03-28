@@ -843,6 +843,8 @@ MonoBehaviour:
   - {fileID: 8099971569682152113, guid: f1e57811a5bd1fe4fb7a8bc5d1f7029b, type: 3}
   - {fileID: 1808149026393947054, guid: b29260a5d6423f3448d1b9fd513f00ad, type: 3}
   - {fileID: 5590350355901286088, guid: 3834b8c7bda23844887dd45f2798440b, type: 3}
+  - {fileID: 6321629625575916331, guid: e82a650159a93bd46a2158ee67c42fb3, type: 3}
+  - {fileID: 5738284484419463364, guid: 4bacf7689172dc5409e423b52fdd10f2, type: 3}
   player: {fileID: 1510352709}
   initialSpawnCount: 10
   spawnThreshold: 40
@@ -1042,7 +1044,7 @@ GameObject:
   - component: {fileID: 1510352705}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1059,12 +1061,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75831a2b4c4d434a9cf02c7f79ec3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 30
+  moveSpeed: 35
   jumpForce: 25
   maxJumps: 3
   growthRate: 0.01
   maxSize: 10000
-  deadY: -25
+  deadY: -40
 --- !u!58 &1510352706
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1124,7 +1126,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
